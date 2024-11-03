@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 type PanicResponse = { message: string }
 
 export default function PanicPage() {
-  const { isLoggedIn, isFetchingUserInfo } = useFusionAuth();
+  const { isLoggedIn } = useFusionAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,12 +15,12 @@ export default function PanicPage() {
       navigate("/");
     }
   }, [isLoggedIn, navigate]);
-  
+
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('asdf');
 
   const handleClose = (
-    event: React.SyntheticEvent | Event,
+    _: React.SyntheticEvent | Event,
     reason?: SnackbarCloseReason,
   ) => {
     if (reason === 'clickaway') {
